@@ -7,10 +7,34 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
+# Theme to use
+theme = "ntun"
+
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
 
+
 [extra]
 # Put all your custom variables here
+[extra]
+author = "Felix Schlösser / TinTin"
+author_image="me.jpg"
+city="Hamburg"
+years="281"
+
+job = "IT-Guy at AStA TU-Hamburg"
+description = "Dragons & Aunt ❤️"
+
+links = [
+    { url = "https://github.com/felixschloesser/", title="", icon = "fab fa-github"},
+    { url = "https://twitter.com/TinTinUnbekannt", title="", icon = "fab fa-twitter"},
+    { url = "mailto:info@felixschloesser.de", title="", icon = "fas fa-envelope"}
+]
+
+# if you add languages, put your emoji flag on array
+languages_flags = [
+    "EN",
+    "DE",
+]
