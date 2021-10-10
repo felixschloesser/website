@@ -1,56 +1,99 @@
-# **Ntun**
+# Simple Personal Website based on the Zola Static Site generator
 
 ![alt text](screenshot.png "Screenshoot")
 
-**Live demo** : https://netoun.github.io/ntun/
+
 ## Contents
 
-- [Installation](#installation)
+- [Options](#translations)
 - [Options](#options)
+- [Options](#known_issues)
 
-## Installation
-First download this theme to your `themes` directory:
 
-```bash
-cd themes
-git clone https://github.com/netoun/ntun.git
-```
-and then enable it in your `config.toml`:
+A lot of things can be tanslated via the translation settings inside the `config.toml`. All static text is ready for i18n. Dynamic text is translated usind special language specific endings inside the `content` directory. See the [zola docs](https://www.getzola.org/documentation/content/multilingual/) for more information on i18n.
 
 ```toml
-theme = "ntun"
+[languages.en]
+# Language specific settigns
+title = "Felix Schlösser"
+description = "A Hompage form and for TinTin"
+
+
+[languages.en.translations]
+occupation = "IT-Guy at AStA Hamburg University of Technology"
+by = "by"
+source = "Source"
+source_code = "Source code"
+licenced_under = "licenced under"
+content_licenced_under = "Contents, unless stated otherwise, under"
+powered_by = "Powered by"
+zola_description = "a static site generator written in rust"
+not_found_message = "Unfortunately this page could not be found."
+back = "Back to the Homepage"
 ```
 
-This theme requires index section in `about` (`content/about/_index.md`)
+Additional Languages can easily be added:
 
-The posts should therefore be in directly under the `content about` folder.
+```toml
+[languages.de]
+# Language specific settigns
+title = "Felix Schlösser"
+description = "Eine Hompage von und für TinTin."
+
+
+[languages.de.translations]
+occupation = "IT-Mensch im AStA der TU-Hamburg"
+by = "von"
+source = "Quelle"
+source_code = "Quelltext"
+licenced_under = "lizensiert unter der"
+content_licenced_under = "Inhalte, wenn nicht anders angegeben, unter"
+powered_by = "Erstellt mit"
+zola_description = "einem in Rust geschriebenen statischen Seitengenerator"
+not_found_message = "Diese Seite konnte leider nicht gefunden werden."
+back = "Zurück zur Startseite"
+```
 
 ## Options
-
-Set a field in `extra` with a key of `after_dark_menu`:
+A lot of things can be set via the extra settings inside the `config.toml`.
 
 ```toml
 [extra]
-author = "Jon Snow"
-author_image="me.jpg"
-city="Winterfell"
-years="281"
+# Put all your custom variables here
+debug=true
 
-job = "King of the north"
-description = "Dragons & Aunt ❤️"
+brand_text = "Your Brand"
 
-links = [
-    { url = "", title="", icon = "fab fa-github"},
-    { url = "", title="", icon = "fab fa-twitter"},
-    { url = "", title="", icon = "fab fa-linkedin"},
-    { url = "mailto:", title="", icon = "fas fa-envelope"}
-]
+author_name = "John Appleseed"
+author_nickname = "Jonny"
+author_image="tintin_in_shenzhen.jpg"
+city="Berlin"
+copyright_year="2021"
 
-# if you add languages, put your emoji flag on array
-languages_flags = [
-    "🇬🇧"
+image_path = "images/tintin_in_shenzhen.jpg"
+image_alt = "Comic cover of TinTin entering a room full of bleeding edge technology with his friends."
+image_title = "TinTin in Shenzhen (cropped)"
+image_author = "Nicolas Nova"
+image_link = "https://twitter.com/nicolasnova/status/1088082898404679680/photo/1"
+
+source_code_link = "https://github.com/felixschloesser/website"
+
+source_code_licence.name = "AGPL v3"
+source_code_licence.link = "https://www.gnu.org/licenses/agpl-3.0.en.html"
+
+content_licence.name = "CC BY-NC-SA 4.0"
+content_licence. link = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+
+social_links = [
+    { url = "https://github.com/felixschloesser/", name="Github", icon = "fab fa-github"},
+    { url = "https://twitter.com/TinTinUnbekannt", name="Twitter", icon = "fab fa-twitter"},
+    { url = "mailto:info@felixschloesser.de", name="Mail", icon = "fas fa-envelope"}
 ]
 ```
 
 If you put `$BASE_URL` in a url, it will automatically be replaced by the actual
 site URL.
+
+
+## Known Issues
+The 404 cant be translated. This seems to be handles like a `wontfix` by the zola developers. See the relevant [issue discussion](https://github.com/getzola/zola/issues/821) for more details.
