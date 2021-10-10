@@ -1,6 +1,8 @@
-# Simple Personal Website based on the Zola Static Site generator
+# Personal Website
 
 ![alt text](screenshot.png "Screenshoot of the Website")
+
+Powerd by [Zola](https://getzola.org/) a static site generator written in rust.
 
 CSS Framewok used: [bulma](https://bulma.io/) with the addition of [bulma-prefers-dark](https://github.com/jloh/bulma-prefers-dark) to add support for Dark Mode.
 
