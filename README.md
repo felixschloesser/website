@@ -5,10 +5,12 @@
 
 ## Contents
 
-- [Options](#translations)
+- [Translation](#translation)
 - [Options](#options)
-- [Options](#known_issues)
+- [Known Issues](#known-issues)
 
+
+## Translation
 
 A lot of things can be tanslated via the translation settings inside the `config.toml`. All static text is ready for i18n. Dynamic text is translated usind special language specific endings inside the `content` directory. See the [zola docs](https://www.getzola.org/documentation/content/multilingual/) for more information on i18n.
 
