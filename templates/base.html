@@ -14,13 +14,13 @@
 
   <!--Stylesheets-->
   <link rel="stylesheet" href="{{ get_url(path="bulma.css") }}" type="text/css">
-  <link rel="stylesheet" href="{{ get_url(path="bulma-prefers-dark.css") }}" type="text/css"/>
+  <link rel="stylesheet" href="{{ get_url(path="bulma-prefers-dark.css") }}" type="text/css">
   <link rel="stylesheet" href="{{ get_url(path="fontawesome/css/all.css") }}" type="text/css">
   <link rel="stylesheet" href="{{ get_url(path="custom/style.css") }}" type="text/css">
 
   <!--Favicon-->
   <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.png" sizes="96x96" type="image/png"/>
+  <link rel="icon" href="/favicon.png" sizes="96x96" type="image/png">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" type="image/png">
   <meta name="theme-color" content="#000000">
@@ -29,21 +29,21 @@
   <meta property="og:title" content="{{ macros::get_current_page_title() }}">
   <meta property="og:image" content="{{ config.base_url ~ '/images/tintin_in_shenzhen.jpg' }}">
   <meta property="og:description" content="{{ config.description }}">
-  <meta property="og:locale" content="{{ lang }}" />
+  <meta property="og:locale" content="{{ lang }}">
   {% if section %}
       {% for translation in section.translations %}
           {% if not translation.lang == lang %}
-            <meta property="og:locale:alternate" content="{{ translation.lang }}"/>
+            <meta property="og:locale:alternate" content="{{ translation.lang }}">
           {% endif %}
       {% endfor %}
   {% elif page %}
       {% for translation in page.translations %}
           {% if not translation.lang == lang %}
-            <meta property="og:locale:alternate" content="{{ translation.lang }}"/>
+            <meta property="og:locale:alternate" content="{{ translation.lang }}">
           {% endif %}
       {% endfor %}
   {% endif %}
-  <meta property="og:site_name" content="{{ config.title }}" />
+  <meta property="og:site_name" content="{{ config.title }}">
 
 
 </head>
