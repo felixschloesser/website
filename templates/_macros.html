@@ -1,0 +1,98 @@
+{% macro get_current_page_title() %}
+
+{% if section %}
+    {{ section.title}}
+{% elif page %}
+    {{ page.title}}
+{% else %}
+    404
+{% endif %}
+
+{% endmacro get_current_page_title %}
+
+
+{% macro render_navbar() %}
+
+{% if section %}
+    {% set current_page=section %}
+    {% if section.ancestors %}
+        {% for ancestor in section.ancestors %}
+            {% if loop.last %}
+                {% set_global root_section=ancestor %}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% set root_section=section.relative_path %}
+    {% endif %}
+{% elif page %}
+    {% set current_page=page %}
+    {% if page.ancestors %}
+        {% for ancestor in page.ancestors %}
+            {% set_global root_section=ancestor %}
+        {% endfor %}
+    {% else %}
+        {% set root_section=page.relative_path %}
+    {% endif%}
+{% else %}
+    {% set root_section="_index.md" %}
+    {% set current_path="404" %}
+{% endif %}
+
+{% set root_section = get_section(path=root_section) %}
+<nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
+
+    <div class="navbar-brand">
+        <a class="navbar-item" href="{{ get_url(path="/", lang=lang) }}">
+            <span class="brand">
+                {{ config.extra.brand_text }}
+            </span>
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarContent">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div id="navbarContent" class="navbar-menu">
+        <div class="navbar-start">
+            {% for page in root_section.pages %}
+                {% if page.path == current_path %}
+                    <a class="navbar-item is-active has-text-weight-medium" href="{{ page.permalink }}">{{ page.title }}</a>
+                {% else %}
+                    <a class="navbar-item" href="{{ page.permalink }}">{{ page.title }}</a>
+                {% endif %}
+
+            {% endfor %}
+            {% if config.extra.external_nav %}
+            {% for item in config.extra.external_nav %}
+                <a class="nav-item subtitle-text" href="{{ item.link }}">{{ item.title }}</a>
+            {% endfor %}
+        {% endif %}
+        </div>
+        {% if current_page %}
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons has-addons">
+                        {% for translation in current_page.translations | sort(attribute="lang") %}
+                          {% if translation.lang == lang %}
+                            <a class="button" disabled>
+                                {{ translation.lang |upper }}
+                            </a>
+                          {% else %}
+                            <a class="button" href="{{ translation.permalink }}">
+                                {{ translation.lang |upper }}
+                            </a>
+                          {% endif %}
+                          {% if not loop.last %}
+
+                          {% endif %}
+                        {% else %}
+
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</nav>
+{% endmacro render_navbar %}

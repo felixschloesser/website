@@ -1,0 +1,90 @@
+{% import "_macros.html" as macros %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no viewport-fit=cover">
+
+  <meta name="author" content="{{ config.extra.author_name }}">
+  <meta name="description" content="{{ config.description }}">
+
+  <title>{% block page_title %}{{ macros::get_current_page_title() }}{% endblock page_title %} | {{ config.title }}</title>
+  <link rel="canonical" href="{{ config.base_url }}">
+
+  <!--Stylesheets-->
+  <link rel="stylesheet" href="{{ get_url(path="bulma.css") }}" type="text/css">
+  <link rel="stylesheet" href="{{ get_url(path="bulma-prefers-dark.css") }}" type="text/css"/>
+  <link rel="stylesheet" href="{{ get_url(path="fontawesome/css/all.css") }}" type="text/css">
+  <link rel="stylesheet" href="{{ get_url(path="custom/style.css") }}" type="text/css">
+
+  <!--Favicon-->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.png" type="image/png"/>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/png">
+  <meta name="theme-color" content="#000000">
+
+  <!--Open Graph-->
+  <meta property="og:title" content="{{ macros::get_current_page_title() }}">
+  <meta property="og:image" content="{{ config.base_url ~ '/images/tintin_in_shenzhen.jpg' }}">
+  <meta property="og:description" content="{{ config.description }}">
+  <meta property="og:locale" content="{{ lang }}" />
+  {% if section %}
+      {% for translation in section.translations %}
+          {% if not translation.lang == lang %}
+            <meta property="og:locale:alternate" content="{{ translation.lang }}"/>
+          {% endif %}
+      {% endfor %}
+  {% elif page %}
+      {% for translation in page.translations %}
+          {% if not translation.lang == lang %}
+            <meta property="og:locale:alternate" content="{{ translation.lang }}"/>
+          {% endif %}
+      {% endfor %}
+  {% endif %}
+  <meta property="og:site_name" content="{{ config.title }}" />
+
+
+</head>
+
+<body class="is-flex is-flex-direction-column">
+
+    <section>
+        <div class="container is-max-widescreen">
+            {{ macros::render_navbar() }}
+        </div>
+    </section>
+
+    <section class="section is-flex-grow-1">
+        <div class="container is-max-desktop">
+            <main>
+                {% block content %} {% endblock %}
+            </main>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <hr>
+            <footer>
+                {% include '_footer.html' %}
+            </footer>
+        </div>
+    </section>
+    {% if config.extra.debug %}
+
+    <!--Debug-->
+    <section class="section">
+        <div class="container is-max-desktop">
+            {% include '_debug.html' %}
+        </div>
+    </section>
+  {% endif %}
+
+  <!--Javascript-->
+  <script type="text/javascript" src="{{ get_url(path="js/navbar.js") }}"></script>
+</body>
+
+<link rel="icon" href="/favicon.ico">
+</html>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block page_title %}404{% endblock page_title %}
+
+
+{% block content %}
+    <h1 class="title is-1">404</h1>
+
+    <div class="content">
+        {{ trans(key="not_found_message", lang=lang) }}
+    </div>
+
+    <a class="button" href="{{ get_url(path="/", lang=lang) }}">{{ trans(key="back", lang=lang) }}</a>
+{% endblock content %}

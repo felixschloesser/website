@@ -4,37 +4,109 @@ base_url = "https://felixschloesser.de"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
+# When set to "true", a search index is built from the pages and section
+# content for `default_language`.
+build_search_index = false
 
-# Theme to use
-theme = "ntun"
+# Metadata
+# Empty because of translations
+title = ""
+description = ""
+
 
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
 
+[links]
+# Whether external links are to be opened in a new tab
+# If this is true, a `rel="noopener"` will always automatically be added for security reasons
+external_links_target_blank = true
+
+# Whether to set rel="nofollow" for all external links
+external_links_no_follow = true
+
+# Whether to set rel="noreferrer" for all external links
+external_links_no_referrer = true
+
+# Language Settings
+default_language = "en"
+
+[translations]
+
+[languages]
+# Additional languages definition
+# You can define language specific config values and translations:
+# title, description, generate_feed, feed_filename, taxonomies, build_search_index
+# as well as its own search configuration and translations (see above for details on those)
+
+[languages.en]
+# Language specific settigns
+title = "Felix Schlösser"
+description = "A Hompage form and for TinTin"
+
+
+[languages.en.translations]
+occupation = "IT-Guy at AStA Hamburg University of Technology"
+by = "by"
+source = "Source"
+source_code = "Source code"
+licenced_under = "licenced under"
+content_licenced_under = "Contents, unless stated otherwise, under"
+powered_by = "Powered by"
+zola_description = "a static site generator written in rust"
+not_found_message = "Unfortunately this page could not be found."
+back = "Back to the Homepage"
+
+
+[languages.de]
+# Language specific settigns
+title = "Felix Schlösser"
+description = "Eine Hompage von und für TinTin."
+
+
+[languages.de.translations]
+occupation = "IT-Mensch im AStA der TU-Hamburg"
+by = "von"
+source = "Quelle"
+source_code = "Quelltext"
+licenced_under = "lizensiert unter der"
+content_licenced_under = "Inhalte, wenn nicht anders angegeben, unter"
+powered_by = "Erstellt mit"
+zola_description = "einem in Rust geschriebenen statischen Seitengenerator"
+not_found_message = "Diese Seite konnte leider nicht gefunden werden."
+back = "Zurück zur Startseite"
+
 
 [extra]
 # Put all your custom variables here
-[extra]
-author = "Felix Schlösser / TinTin"
-author_image="me.jpg"
+debug=true
+
+brand_text = "TinTin"
+
+author_name = "Felix Schlösser"
+author_nickname = "TinTin"
+author_image="tintin_in_shenzhen.jpg"
 city="Hamburg"
-years="281"
+copyright_year="2021"
 
-job = "IT-Guy at AStA TU-Hamburg"
-description = "Dragons & Aunt ❤️"
+image_path = "images/tintin_in_shenzhen.jpg"
+image_alt = "Comic cover of TinTin entering a room full of bleeding edge technology with his friends."
+image_title = "TinTin in Shenzhen (cropped)"
+image_author = "Nicolas Nova"
+image_link = "https://twitter.com/nicolasnova/status/1088082898404679680/photo/1"
 
-links = [
-    { url = "https://github.com/felixschloesser/", title="", icon = "fab fa-github"},
-    { url = "https://twitter.com/TinTinUnbekannt", title="", icon = "fab fa-twitter"},
-    { url = "mailto:info@felixschloesser.de", title="", icon = "fas fa-envelope"}
-]
+source_code_link = "https://github.com/felixschloesser/website"
 
-# if you add languages, put your emoji flag on array
-languages_flags = [
-    "EN",
-    "DE",
+source_code_licence.name = "AGPL v3"
+source_code_licence.link = "https://www.gnu.org/licenses/agpl-3.0.en.html"
+
+content_licence.name = "CC BY-NC-SA 4.0"
+content_licence. link = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+
+social_links = [
+    { url = "https://github.com/felixschloesser/", name="Github", icon = "fab fa-github"},
+    { url = "https://twitter.com/TinTinUnbekannt", name="Twitter", icon = "fab fa-twitter"},
+    { url = "mailto:info@felixschloesser.de", name="Mail", icon = "fas fa-envelope"}
 ]
