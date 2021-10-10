@@ -5,7 +5,9 @@
     <span>
         {{ trans(key="content_licenced_under", lang=lang ) }} <a href="{{ config.extra.content_licence.link }}">{{ config.extra.content_licence.name }}</a>.
     </span>
-    <span>© {{ config.extra.copyright_year }}, {{ config.extra.author_name }}.
+    <span>
+        © {{ config.extra.copyright_year }}, {{ config.extra.author_name }}.
+    </span>
     <p>
         {{ trans(key="powered_by", lang=lang ) }} <a href="https://www.getzola.org/">Zola</a>, {{ trans(key="zola_description", lang=lang ) }}.
     </p>

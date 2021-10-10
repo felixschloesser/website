@@ -2,42 +2,46 @@
 {% import "_macros.html" as macros %}
 
 {% block content %}
-  <div class="hero is-small">
-    <div class="hero-body">
-      <div class="columns is-vcentered is-variable is-5">
-        <div class="column is-two-fifths">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-square">
-                <img src="{{ get_url(path=config.extra.image_path) }}" alt="{{ config.extra.image_alt }}">
-              </figure>
+
+
+<div class="container is-max-desktop">
+
+    <div class="hero">
+        <div class="hero-body">
+            <div class="columns is-vcentered is-variable is-5">
+                <div class="column is-two-fifths">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-square">
+                                <img src="{{ get_url(path=config.extra.image_path) }}" alt="{{ config.extra.image_alt }}">
+                            </figure>
+                        </div>
+                    </div>
+                    <p class="is-size-7 mt-3">{{ config.extra.image_title }} {{ trans(key="by", lang=lang) }} {{ config.extra.image_author }}: <a href="{{ config.extra.image_link }}">{{ trans(key="source", lang=lang) }}.</a></p>
+                </div>
+                <div class="column">
+                    <h1 class="title">
+                        {{ config.extra.author_name }}
+                    </h1>
+
+                    <h2 class="subtitle">
+                        {{ trans(key="occupation", lang=lang) }}
+                    </h2>
+                    <p>
+                        {{ section.content | safe }}
+                    </p>
+                    <hr>
+                    {% for social in config.extra.social_links %}
+                        <a class="tag icon-text mb-2" href="{{ social.url }}">
+                            <span class="icon">
+                                <i class="{{ social.icon }}"></i>
+                            </span>
+                            <span>{{ social.name }}</span>
+                        </a>
+                    {% endfor %}
+                </div>
             </div>
-          </div>
-          <p class="is-size-7 mt-3">{{ config.extra.image_title }} {{ trans(key="by", lang=lang) }} {{ config.extra.image_author }}: <a href="{{ config.extra.image_link }}">{{ trans(key="source", lang=lang) }}.</a></p>
-
         </div>
-        <div class="column">
-          <h1 class="title">
-            {{ config.extra.author_name }}
-          </h1>
-
-            <h2 class="subtitle">
-              {{ trans(key="occupation", lang=lang) }}
-            </h2>
-            <p>
-              {{ section.content | safe }}
-            </p>
-            <hr>
-            {% for social in config.extra.social_links %}
-              <a class="tag icon-text mb-2" href="{{ social.url }}">
-                <span class="icon">
-                  <i class="{{ social.icon }}"></i>
-                </span>
-                <span>{{ social.name }}</span>
-              </a>
-            {% endfor %}
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 {% endblock content %}

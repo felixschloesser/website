@@ -39,8 +39,7 @@
 {% endif %}
 
 {% set root_section = get_section(path=root_section) %}
-<nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
-
+<nav class="navbar is-spaced" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="{{ get_url(path="/", lang=lang) }}">
             <span class="brand">
@@ -75,9 +74,9 @@
                     <div class="buttons has-addons">
                         {% for translation in current_page.translations | sort(attribute="lang") %}
                           {% if translation.lang == lang %}
-                            <a class="button" disabled>
+                            <button class="button" disabled>
                                 {{ translation.lang |upper }}
-                            </a>
+                            </button>
                           {% else %}
                             <a class="button" href="{{ translation.permalink }}">
                                 {{ translation.lang |upper }}

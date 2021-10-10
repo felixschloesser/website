@@ -13,22 +13,22 @@
   <link rel="canonical" href="{{ config.base_url }}">
 
   <!--Stylesheets-->
-  <link rel="stylesheet" href="{{ get_url(path="bulma.css") }}" type="text/css">
-  <link rel="stylesheet" href="{{ get_url(path="bulma-prefers-dark.css") }}" type="text/css">
-  <link rel="stylesheet" href="{{ get_url(path="fontawesome/css/all.css") }}" type="text/css">
-  <link rel="stylesheet" href="{{ get_url(path="custom/style.css") }}" type="text/css">
+  <link rel="stylesheet" href="/bulma.css" type="text/css">
+  <link rel="stylesheet" href="/bulma-prefers-dark.css" type="text/css">
+  <link rel="stylesheet" href="/fontawesome/css/all.css" type="text/css">
+  <link rel="stylesheet" href="/custom/style.css" type="text/css">
 
   <!--Favicon-->
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="/favicon.svg">
   <link rel="icon" href="/favicon.ico">
-  <link rel="mask-icon" href="mask-icon.svg" color="#ffffff">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="manifest.json">
+  <link rel="mask-icon" href="/mask-icon.svg" color="#ffffff">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
 
   <!--Open Graph-->
   <meta property="og:title" content="{{ macros::get_current_page_title() }}">
-  <meta property="og:image" content="{{ config.base_url ~ '/images/tintin_in_shenzhen.jpg' }}">
+  <meta property="og:image" content="/images/tintin_in_shenzhen.jpg">
   <meta property="og:description" content="{{ config.description }}">
   <meta property="og:locale" content="{{ lang }}">
   {% if section %}
@@ -50,20 +50,15 @@
 </head>
 
 <body class="is-flex is-flex-direction-column">
-
     <section>
         <div class="container is-max-widescreen">
             {{ macros::render_navbar() }}
         </div>
     </section>
 
-    <section class="section is-flex-grow-1">
-        <div class="container is-max-desktop">
-            <main>
-                {% block content %} {% endblock %}
-            </main>
-        </div>
-    </section>
+    <main class="is-flex-grow-1">
+        {% block content %} {% endblock %}
+    </main>
 
     <section class="section">
         <div class="container is-max-desktop">
@@ -73,19 +68,17 @@
             </footer>
         </div>
     </section>
-    {% if config.extra.debug %}
 
-    <!--Debug-->
-    <section class="section">
-        <div class="container is-max-desktop">
-            {% include '_debug.html' %}
-        </div>
-    </section>
-  {% endif %}
+    {% if config.extra.debug %}
+        <!--Debug-->
+        <section class="section">
+            <div class="container is-max-desktop">
+                {% include '_debug.html' %}
+            </div>
+        </section>
+    {% endif %}
 
   <!--Javascript-->
-  <script type="text/javascript" src="{{ get_url(path="js/navbar.js") }}"></script>
+  <script src="{{ get_url(path="js/navbar.js") }}"></script>
 </body>
-
-<link rel="icon" href="/favicon.ico">
 </html>
