@@ -2,6 +2,7 @@
 
 ![alt text](screenshot.png "Screenshoot")
 
+CSS Framewok used: [bulma](https://bulma.io/) with the addition of [bulma-prefers-dark](https://github.com/jloh/bulma-prefers-dark) to add support for Dark Mode.
 
 ## Contents
 
