@@ -27,9 +27,9 @@
                     <h2 class="subtitle">
                         {{ trans(key="occupation", lang=lang) }}
                     </h2>
-                    <p>
-                        {{ section.content | safe }}
-                    </p>
+
+                    {{ section.content | safe }}
+
                     <hr>
                     {% for social in config.extra.social_links %}
                         <a class="tag icon-text mb-2" href="{{ social.url }}">
