@@ -62,7 +62,7 @@
                     <div class="navbar-item has-dropdown is-hoverable" >
                         {% if subsection.relative_path %}
                             {% if current_path is starting_with(subsection.path) %}
-                                <a class="navbar-link is-arrowless has-text-weight-medium" href="{{ subsection.permalink }}">{{ subsection.title }}</a>
+                                <a class="navbar-link is-arrowless is-active has-text-weight-medium" href="{{ subsection.permalink }}">{{ subsection.title }}</a>
                             {% else %}
                                 <a class="navbar-link is-arrowless" href="{{ subsection.permalink }}">{{ subsection.title }}</a>
                             {% endif %}
