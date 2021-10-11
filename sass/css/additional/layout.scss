@@ -1,3 +1,9 @@
+// Disable Font Scaling on ios
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+
 /* Placing the footer at the bottom */
 body {
   min-height: 120vh;
