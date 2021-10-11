@@ -82,7 +82,7 @@ no_images = "Keine Bilder gefunden."
 
 [extra]
 # Put all your custom variables here
-debug=true
+debug=false
 
 brand_text = "TinTin"
 
