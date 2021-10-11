@@ -8,21 +8,21 @@
 
 {% if current.assets %}
 <div class="gallery py-5">
-    <div class="columns is-multiline is-variable is-1">
+    <div class="columns is-mobile is-multiline is-variable is-1">
         {% for asset in current.assets -%}
             {%- if asset is matching("[.](jpeg|jpg|JPG|JPEG|png|PNG)$") -%}
-                <div class="column is-one-third py-1">
+                <div class="column is-half-mobile is-one-third-tablet py-1">
+
                     {% set image = resize_image(path=asset, width=512, height=512) %}
-                        <a href="{{ get_url(path=asset) }}">
+                    <a href="{{ get_url(path=asset) }}">
                         <figure class="image is-square mx-0">
                             <img src="{{ image.url }}">
                         </figure>
                     </a>
+
                 </div>
             {%- endif %}
         {%- endfor %}
     </div>
 </div>
-{% else %}
-    <p>{{ trans(key="no_images") }}</p>
 {% endif %}

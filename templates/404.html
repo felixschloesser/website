@@ -4,11 +4,15 @@
 
 
 {% block content %}
-    <h1 class="title is-1">404</h1>
+<section class="section">
+    <div class="container is-max-desktop">
+        <h1 class="title is-1">404</h1>
 
-    <div class="content">
-        {{ trans(key="not_found_message", lang=lang) }}
+        <div class="content">
+            {{ trans(key="not_found_message", lang=lang) }}
+        </div>
+
+        <a class="button" href="{{ get_url(path="/", lang=lang) }}">{{ trans(key="back", lang=lang) }}</a>
     </div>
-
-    <a class="button" href="{{ get_url(path="/", lang=lang) }}">{{ trans(key="back", lang=lang) }}</a>
+</section>
 {% endblock content %}

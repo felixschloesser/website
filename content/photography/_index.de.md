@@ -1,11 +1,9 @@
 +++
 title = "Fotografie"
-template = "photo_index.html"
+template="photo_index.html"
+page_template = "page.html"
 sort_by = "date"
 +++
 
-Ich fotografiere gerne mit meiner Fuji Kamera. Schau sie dir bitte an.
+Die meisten Bilden stammen aus meiner Fuji X100F, einige auch von meinem iPhone.
 
----
-
-{{ gallery() }}

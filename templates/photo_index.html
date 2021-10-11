@@ -3,11 +3,40 @@
 {% block content %}
     <section class="section">
         <div class="container is-max-desktop">
-            <h1 class="title">{{ section.title }}</h1>
+            <h1 class="title is-2">{{ section.title }}</h1>
 
             <div class="content">
                 {{ section.content | safe }}
             </div>
+
+            <div class="columns is-multiline">
+                {% for page in section.pages %}
+                    <div class="column is-half">
+                        <div class="card clickable"
+                             data-href="{{ get_url(path=page.path) }}"
+                             tabindex="0">
+                            <div class="card-image">
+                                <figure class="figure">
+                                    {% set number_of_images = page.assets | length  %}
+                                    {% set random_image_index = get_random(end=number_of_images) %}
+                                    {% set_global chosen_image = page.assets | nth(n=random_image_index) %}
+                                    {% set_global resized_image = resize_image(path=chosen_image, width=512, height=512) %}
+
+                                    <img src="{{ resized_image.url }}">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <p>{{ page.date | date(format="%Y") }}</p>
+                                <h2 class="title">{{ page.title }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </section>
 {% endblock content %}
+
+{% block additional_js %}
+    <script src="{{ get_url(path="js/clickable.js") }}"></script>
+{% endblock additional_js %}

@@ -1,9 +1,9 @@
 +++
 title = "Photography"
-template = "photo_index.html"
+template="photo_index.html"
+page_template = "page.html"
 sort_by = "date"
 +++
 
-I like taking pictures with my Fuji Camera. Look at them please.
+Most of the images are from my Fuji X100F, some from my iPhone.
 
-{{ gallery() }}
