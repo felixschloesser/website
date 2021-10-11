@@ -2,7 +2,7 @@
 base_url = "https://felixschloesser.de"
 
 # Whether to automatically compile all Sass files in the sass directory
-compile_sass = true
+compile_sass = false
 
 # When set to "true", a search index is built from the pages and section
 # content for `default_language`.
@@ -58,7 +58,7 @@ powered_by = "Powered by"
 zola_description = "a static site generator written in rust"
 not_found_message = "Unfortunately this page could not be found."
 back = "Back to the Homepage"
-
+no_images = "No images found."
 
 [languages.de]
 # Language specific settigns
@@ -77,11 +77,12 @@ powered_by = "Erstellt mit"
 zola_description = "einem in Rust geschriebenen statischen Seitengenerator"
 not_found_message = "Diese Seite konnte leider nicht gefunden werden."
 back = "Zurück zur Startseite"
+no_images = "Keine Bilder gefunden."
 
 
 [extra]
 # Put all your custom variables here
-debug=false
+debug=true
 
 brand_text = "TinTin"
 
