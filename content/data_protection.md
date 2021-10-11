@@ -12,4 +12,4 @@ Germany
 
 
 #### Third Party Inclusion
-This website is hosted by [Github](https://github.com) using [Github Pages](https://help.github.com/articles/what-is-github-pages/). The Github *Global Privacy Practices* are available [here](https://help.github.com/articles/global-privacy-practices/)
+This website is hosted by [Github](https://github.com) using [Github Pages](https://help.github.com/articles/what-is-github-pages/). The Github *Global Privacy Practices* are available [here](https://help.github.com/articles/global-privacy-practices/).
