@@ -1,0 +1,21 @@
+/* Placing the footer at the bottom */
+body {
+  min-height: 120vh;
+  min-height: -webkit-fill-available;
+}
+
+$padding: 1.5rem;
+
+.notch-safe {
+  // Since these max() calls are valid calculation expressions, they're
+  // parsed as calculations.
+  padding-left: m#{a}x($padding, env(safe-area-inset-left));
+  padding-right: m#{a}x($padding, env(safe-area-inset-right));
+}
+
+nav.navbar.notch-safe-nav {
+  // Since these max() calls are valid calculation expressions, they're
+  // parsed as calculations.
+  padding-left: m#{a}x(3px, env(safe-area-inset-left));
+  padding-right: m#{a}x(3px, env(safe-area-inset-right));
+}
