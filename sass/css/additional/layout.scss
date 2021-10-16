@@ -18,9 +18,9 @@ $padding: 1.5rem;
   padding-right: m#{a}x($padding, env(safe-area-inset-right));
 }
 
-nav.navbar.notch-safe-nav {
+.container.notch-safe-nav {
   // Since these max() calls are valid calculation expressions, they're
   // parsed as calculations.
-  padding-left: m#{a}x(3px, env(safe-area-inset-left));
-  padding-right: m#{a}x(3px, env(safe-area-inset-right));
+  padding-left: m#{a}x(0px, calc(env(safe-area-inset-left) - 1.5rem ));
+  padding-right: m#{a}x(0px, calc(env(safe-area-inset-right) - 1.5rem ));
 }
